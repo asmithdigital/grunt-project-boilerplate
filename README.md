@@ -1,4 +1,4 @@
-Grun Scss boilerplate
+Grunt Scss boilerplate
 =====================
 
 *Run the following commands to set up your project*
