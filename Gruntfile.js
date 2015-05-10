@@ -3,7 +3,18 @@ module.exports = function(grunt) {
     // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
+        
+        scsslint: {
+   	    allFiles: [
+      	        'sass/*/*.scss',
+    	    ],
+    	    options: {
+      	        bundleExec: true,
+      	        config: '.scss-lint.yml',
+      	        reporterOutput: 'scss-lint-report.xml',
+      	        colorizeOutput: true
+    	    },
+        },
         concat: {
             dist: {
                 src: [
@@ -49,6 +60,10 @@ module.exports = function(grunt) {
             options: {
                 livereload: false
             },
+	    scsslint: {
+    		files: 'sass/*/*.scss',
+    	        tasks: ['scsslint']
+  	    },
             scripts: {
                 files: [
                     './bower_components/jQuery/dist/jquery.js',
@@ -78,8 +93,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-scss-lint');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'concat', 'uglify' ]);
+    grunt.registerTask('default', ['scsslint',  'sass', 'autoprefixer', 'cssmin', 'concat', 'uglify' ]);
 
 };
