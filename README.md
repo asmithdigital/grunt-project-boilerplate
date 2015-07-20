@@ -5,9 +5,15 @@ You can either clone this repo or download the zip. If you clone it then remembe
 
 *Remember to ensure you have the .gitignore file. It is hidden and you will only see it in the command line or text editor.*
 
-**Run the following commands to set up your project:**
+**Install Node plugins:**
+``` npm install ```
 
-1.  npm install
-2.  bower install
-3.  grunt
-4.  grunt watch
+**Install Bower dependencies:**
+``` bower install ```
+
+**Build gulp project:**
+``` grunt ```
+
+**Watch for changes in JS and SCSS:**
+``` grunt watch ```
+
